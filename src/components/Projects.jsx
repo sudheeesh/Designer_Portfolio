@@ -106,7 +106,7 @@ const Projects = () => {
                     </p>
                 </motion.div>
 
-                <div className="relative h-[550px] md:h-[480px] w-full max-w-5xl mx-auto">
+                <div className="relative h-[850px] md:h-[480px] w-full max-w-5xl mx-auto">
                     <AnimatePresence initial={false} mode="wait">
                         <motion.div
                             key={currentIndex}
