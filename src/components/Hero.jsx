@@ -38,7 +38,7 @@ const Hero = () => {
     }, []);
 
     return (
-        <section id="home" className="min-h-screen flex flex-col md:flex-row items-center justify-between px-6 sm:px-12 pt-32 max-w-7xl mx-auto overflow-hidden perspective-1000">
+        <section id="home" className="min-h-[45rem] landscape:min-h-screen flex flex-col md:flex-row items-center justify-between px-6 sm:px-12 pt-32 max-w-7xl mx-auto overflow-hidden perspective-1000">
 
             {/* Background Decorative Gradients */}
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-20 pointer-events-none">
