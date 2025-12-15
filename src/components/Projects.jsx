@@ -183,7 +183,7 @@ const Projects = () => {
                                         <motion.div
                                             animate={{ y: [0, -10, 0] }}
                                             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                            className="relative w-[220px] h-[440px] bg-white rounded-[2.5rem] border-[6px] border-white shadow-xl transform rotate-0 overflow-hidden"
+                                            className="relative w-[180px] h-[360px] md:w-[220px] md:h-[440px] bg-white rounded-[2.5rem] border-[6px] border-white shadow-xl transform rotate-0 overflow-hidden"
                                         >
                                             {/* Dynamic Notch */}
                                             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-5 bg-black rounded-b-lg z-30" />
@@ -210,7 +210,7 @@ const Projects = () => {
                                         <motion.div
                                             animate={{ y: [0, -8, 0] }}
                                             transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                                            className="relative w-[90%] md:w-[380px] aspect-[4/3] bg-white rounded-2xl shadow-2xl overflow-hidden transform md:translate-x-0"
+                                            className="relative w-[260px] md:w-[380px] aspect-[4/3] bg-white rounded-2xl shadow-2xl overflow-hidden transform md:translate-x-0"
                                         >
                                             {/* App Header */}
                                             <div className="h-8 bg-[#003580] flex items-center justify-between px-3 z-20 relative">
