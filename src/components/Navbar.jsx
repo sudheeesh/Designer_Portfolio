@@ -65,26 +65,24 @@ const Navbar = () => {
                                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
                                     className="absolute right-0 top-full mt-2 w-48 bg-zinc-900 border border-white/10 rounded-2xl overflow-hidden shadow-xl"
                                 >
-                                    <button
-                                        onClick={() => {
-                                            window.location.href = 'mailto:gowthamboothal22@gmail.com';
-                                            setShowHireOptions(false);
-                                        }}
+                                    <a
+                                        href="mailto:gowthamboothal22@gmail.com"
+                                        onClick={() => setShowHireOptions(false)}
                                         className="w-full px-4 py-3 flex items-center gap-3 text-sm text-gray-300 hover:bg-white/10 hover:text-white transition-colors text-left"
                                     >
                                         <Mail size={16} />
                                         Email
-                                    </button>
-                                    <button
-                                        onClick={() => {
-                                            window.open('https://wa.me/916379148128', '_blank');
-                                            setShowHireOptions(false);
-                                        }}
+                                    </a>
+                                    <a
+                                        href="https://wa.me/916379148128"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        onClick={() => setShowHireOptions(false)}
                                         className="w-full px-4 py-3 flex items-center gap-3 text-sm text-gray-300 hover:bg-white/10 hover:text-white transition-colors text-left"
                                     >
                                         <MessageCircle size={16} />
                                         WhatsApp
-                                    </button>
+                                    </a>
                                 </motion.div>
                             )}
                         </AnimatePresence>
