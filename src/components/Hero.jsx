@@ -132,9 +132,10 @@ const Hero = () => {
                     <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
+                        onClick={() => window.open('https://drive.google.com/file/d/1InODo8ye_qIaDJvPUYcIn0ZbPi_WSFZ6/view?usp=drive_link', '_blank')}
                         className="px-8 py-4 bg-transparent border border-white/20 text-white font-semibold rounded-full hover:bg-white/5 transition-colors relative overflow-hidden group"
                     >
-                        <span className="relative z-10">Let's Talk</span>
+                        <span className="relative z-10">Resume</span>
                         <div className="absolute inset-0 bg-white/10 scale-0 group-hover:scale-100 transition-transform duration-300 rounded-full origin-center" />
                     </motion.button>
                 </motion.div>
