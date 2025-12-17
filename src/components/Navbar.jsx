@@ -13,6 +13,11 @@ const Navbar = () => {
         { name: 'Contact', href: '#contact' },
     ];
 
+    // Close menu when resizing to desktop
+    if (typeof window !== 'undefined') {
+        window.onresize = () => window.innerWidth >= 768 && setIsOpen(false);
+    }
+
     return (
         <nav className="relative w-full top-0 z-50 bg-black backdrop-blur-xl">
             <div className="max-w-7xl mx-auto px-6 sm:px-12 relative">
@@ -105,27 +110,79 @@ const Navbar = () => {
             </div>
 
             {/* Mobile Menu Dropdown */}
+            {/* Mobile Menu Overlay & Slide-in */}
             <AnimatePresence>
                 {isOpen && (
-                    <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        className="md:hidden bg-black/90 backdrop-blur-xl border-b border-white/10 overflow-hidden"
-                    >
-                        <div className="px-6 py-4 space-y-4 flex flex-col items-center">
-                            {navLinks.map((link) => (
-                                <a
-                                    key={link.name}
-                                    href={link.href}
+                    <>
+                        {/* Backdrop */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setIsOpen(false)}
+                            className="fixed inset-0 bg-black/60 z-40 md:hidden backdrop-blur-sm"
+                        />
+
+                        {/* Slide-in Menu */}
+                        <motion.div
+                            initial={{ x: '100%' }}
+                            animate={{ x: 0 }}
+                            exit={{ x: '100%' }}
+                            transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                            className="fixed top-0 right-0 h-full w-[280px] bg-black/80 backdrop-blur-2xl border-l border-white/10 z-50 md:hidden shadow-2xl flex flex-col"
+                        >
+                            <div className="flex justify-end p-6">
+                                <button
                                     onClick={() => setIsOpen(false)}
-                                    className="text-lg text-gray-300 hover:text-white w-full text-center py-2"
+                                    className="p-2 rounded-full hover:bg-white/10 text-gray-400 hover:text-white transition-colors"
                                 >
-                                    {link.name}
-                                </a>
-                            ))}
-                        </div>
-                    </motion.div>
+                                    <X size={24} />
+                                </button>
+                            </div>
+
+                            <div className="flex flex-col gap-2 px-6 pb-6 overflow-y-auto h-full">
+                                {navLinks.map((link) => (
+                                    <a
+                                        key={link.name}
+                                        href={link.href}
+                                        onClick={() => setIsOpen(false)}
+                                        className="text-lg font-medium text-gray-300 hover:text-white py-4 border-b border-white/5 transition-colors"
+                                    >
+                                        {link.name}
+                                    </a>
+                                ))}
+
+                                {/* Hire Me Section in Mobile */}
+                                <div className="mt-8">
+                                    <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">Hire Me</h3>
+                                    <div className="flex flex-col gap-3">
+                                        <a
+                                            href="mailto:gowthamboothal22@gmail.com"
+                                            onClick={() => setIsOpen(false)}
+                                            className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors text-gray-300 hover:text-white"
+                                        >
+                                            <div className="p-2 bg-white/5 rounded-lg">
+                                                <Mail size={18} />
+                                            </div>
+                                            <span className="font-medium">Email</span>
+                                        </a>
+                                        <a
+                                            href="https://wa.me/916379148128"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            onClick={() => setIsOpen(false)}
+                                            className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors text-gray-300 hover:text-white"
+                                        >
+                                            <div className="p-2 bg-white/5 rounded-lg">
+                                                <MessageCircle size={18} />
+                                            </div>
+                                            <span className="font-medium">WhatsApp</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </>
                 )}
             </AnimatePresence>
         </nav>
