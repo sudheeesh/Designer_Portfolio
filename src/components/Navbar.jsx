@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Mail, MessageCircle } from 'lucide-react';
+import { Menu, X, Mail, MessageCircle, ArrowRight } from 'lucide-react';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -14,20 +14,68 @@ const Navbar = () => {
     ];
 
     // Close menu when resizing to desktop
-    if (typeof window !== 'undefined') {
-        window.onresize = () => window.innerWidth >= 768 && setIsOpen(false);
-    }
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth >= 768) {
+                setIsOpen(false);
+            }
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    // Prevent body scroll when menu is open
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [isOpen]);
+
+    const menuVariants = {
+        closed: {
+            x: '100%',
+            transition: {
+                type: "spring",
+                stiffness: 400,
+                damping: 40
+            }
+        },
+        open: {
+            x: 0,
+            transition: {
+                type: "spring",
+                stiffness: 400,
+                damping: 40,
+                staggerChildren: 0.1,
+                delayChildren: 0.2
+            }
+        }
+    };
+
+    const itemVariants = {
+        closed: { opacity: 0, x: 20 },
+        open: { opacity: 1, x: 0 }
+    };
 
     return (
-        <nav className="relative w-full top-0 z-50 bg-black backdrop-blur-xl">
-            <div className="max-w-7xl mx-auto px-6 sm:px-12 relative">
+        <nav className="relative w-full top-0 z-50">
+            {/* Background Layer - Moved here to prevent "fixed" children containment issues */}
+            <div className="absolute inset-0 bg-black/80 backdrop-blur-xl z-0 border-b border-white/5" />
+
+            <div className="max-w-7xl mx-auto px-6 sm:px-12 relative z-10">
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}
                     <motion.a
                         href="#"
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
-                        className="text-lg font-bold text-white tracking-widest hover:opacity-80 transition-opacity uppercase shrink-0 z-50"
+                        className="text-lg font-bold text-white tracking-widest hover:opacity-80 transition-opacity uppercase shrink-0"
                     >
                         GOWTHAM B
                     </motion.a>
@@ -51,7 +99,7 @@ const Navbar = () => {
                     </div>
 
                     {/* Right Button */}
-                    <div className="hidden md:block shrink-0 z-50 relative">
+                    <div className="hidden md:block shrink-0 relative">
                         <motion.button
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
@@ -98,10 +146,10 @@ const Navbar = () => {
                     </div>
 
                     {/* Mobile Menu Button */}
-                    <div className="md:hidden z-50">
+                    <div className="md:hidden">
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className="text-gray-300 hover:text-white"
+                            className="text-gray-300 hover:text-white p-2"
                         >
                             {isOpen ? <X size={24} /> : <Menu size={24} />}
                         </button>
@@ -110,7 +158,6 @@ const Navbar = () => {
             </div>
 
             {/* Mobile Menu Dropdown */}
-            {/* Mobile Menu Overlay & Slide-in */}
             <AnimatePresence>
                 {isOpen && (
                     <>
@@ -120,66 +167,71 @@ const Navbar = () => {
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
                             onClick={() => setIsOpen(false)}
-                            className="fixed inset-0 bg-black/60 z-40 md:hidden backdrop-blur-sm"
+                            className="fixed inset-0 bg-black/80 z-[60] md:hidden backdrop-blur-sm"
                         />
 
                         {/* Slide-in Menu */}
                         <motion.div
-                            initial={{ x: '100%' }}
-                            animate={{ x: 0 }}
-                            exit={{ x: '100%' }}
-                            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                            className="fixed top-0 right-0 h-full w-[280px] bg-black/80 backdrop-blur-2xl border-l border-white/10 z-50 md:hidden shadow-2xl flex flex-col"
+                            variants={menuVariants}
+                            initial="closed"
+                            animate="open"
+                            exit="closed"
+                            className="fixed top-0 right-0 h-full w-[280px] bg-[#0a0a0a] border-l border-white/10 z-[70] md:hidden shadow-2xl flex flex-col"
                         >
-                            <div className="flex justify-end p-6">
+                            <div className="flex justify-between items-center p-6 border-b border-white/5">
+                                <span className="text-sm font-bold tracking-widest text-white/50 uppercase">Menu</span>
                                 <button
                                     onClick={() => setIsOpen(false)}
                                     className="p-2 rounded-full hover:bg-white/10 text-gray-400 hover:text-white transition-colors"
                                 >
-                                    <X size={24} />
+                                    <X size={20} />
                                 </button>
                             </div>
 
-                            <div className="flex flex-col gap-2 px-6 pb-6 overflow-y-auto h-full">
+                            <div className="flex flex-col gap-1 p-4 overflow-y-auto h-full">
                                 {navLinks.map((link) => (
-                                    <a
+                                    <motion.a
                                         key={link.name}
+                                        variants={itemVariants}
                                         href={link.href}
                                         onClick={() => setIsOpen(false)}
-                                        className="text-lg font-medium text-gray-300 hover:text-white py-4 border-b border-white/5 transition-colors"
+                                        className="text-lg font-medium text-gray-300 hover:text-white hover:pl-2 px-4 py-4 rounded-xl hover:bg-white/5 transition-all duration-300 flex items-center justify-between group"
                                     >
                                         {link.name}
-                                    </a>
+                                        <ArrowRight size={16} className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-purple-400" />
+                                    </motion.a>
                                 ))}
 
+                                <motion.div variants={itemVariants} className="my-4 h-px bg-white/5" />
+
                                 {/* Hire Me Section in Mobile */}
-                                <div className="mt-8">
-                                    <h3 className="text-xs font-semibold text-gray-500 uppercase tracking-widest mb-4">Hire Me</h3>
+                                <motion.div variants={itemVariants} className="mt-2">
+                                    <h3 className="text-xs font-bold text-white/40 uppercase tracking-widest mb-4 px-4">Contact</h3>
                                     <div className="flex flex-col gap-3">
                                         <a
                                             href="mailto:gowthamboothal22@gmail.com"
                                             onClick={() => setIsOpen(false)}
-                                            className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors text-gray-300 hover:text-white"
+                                            className="flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-white/10 transition-all text-gray-300 hover:text-white group"
                                         >
-                                            <div className="p-2 bg-white/5 rounded-lg">
+                                            <div className="p-2 bg-black/40 rounded-lg group-hover:scale-110 transition-transform text-purple-400">
                                                 <Mail size={18} />
                                             </div>
-                                            <span className="font-medium">Email</span>
+                                            <span className="font-medium">Email Me</span>
                                         </a>
                                         <a
                                             href="https://wa.me/916379148128"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             onClick={() => setIsOpen(false)}
-                                            className="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 transition-colors text-gray-300 hover:text-white"
+                                            className="flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/5 hover:bg-white/10 hover:border-white/10 transition-all text-gray-300 hover:text-white group"
                                         >
-                                            <div className="p-2 bg-white/5 rounded-lg">
+                                            <div className="p-2 bg-black/40 rounded-lg group-hover:scale-110 transition-transform text-green-400">
                                                 <MessageCircle size={18} />
                                             </div>
                                             <span className="font-medium">WhatsApp</span>
                                         </a>
                                     </div>
-                                </div>
+                                </motion.div>
                             </div>
                         </motion.div>
                     </>
