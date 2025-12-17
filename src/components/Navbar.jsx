@@ -14,7 +14,7 @@ const Navbar = () => {
     ];
 
     return (
-        <nav className="static w-full top-0 z-50 bg-black backdrop-blur-xl">
+        <nav className="relative w-full top-0 z-50 bg-black backdrop-blur-xl">
             <div className="max-w-7xl mx-auto px-6 sm:px-12 relative">
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}
@@ -63,25 +63,29 @@ const Navbar = () => {
                                     initial={{ opacity: 0, y: 10, scale: 0.95 }}
                                     animate={{ opacity: 1, y: 0, scale: 1 }}
                                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                                    className="absolute right-0 top-full mt-2 w-48 bg-zinc-900 border border-white/10 rounded-2xl overflow-hidden shadow-xl"
+                                    className="absolute right-0 top-full mt-2 w-56 bg-zinc-900 border border-white/10 rounded-2xl shadow-xl p-2 flex flex-col gap-2"
                                 >
                                     <a
                                         href="mailto:gowthamboothal22@gmail.com"
                                         onClick={() => setShowHireOptions(false)}
-                                        className="w-full px-4 py-3 flex items-center gap-3 text-sm text-gray-300 hover:bg-white/10 hover:text-white transition-colors text-left"
+                                        className="w-full px-4 py-3 flex items-center gap-3 text-sm text-gray-300 bg-black/40 border border-white/5 rounded-xl hover:bg-white/10 hover:text-white transition-all group"
                                     >
-                                        <Mail size={16} />
-                                        Email
+                                        <div className="p-2 bg-white/5 rounded-lg group-hover:bg-white/10 transition-colors">
+                                            <Mail size={16} />
+                                        </div>
+                                        <span className="font-medium">Email</span>
                                     </a>
                                     <a
                                         href="https://wa.me/916379148128"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         onClick={() => setShowHireOptions(false)}
-                                        className="w-full px-4 py-3 flex items-center gap-3 text-sm text-gray-300 hover:bg-white/10 hover:text-white transition-colors text-left"
+                                        className="w-full px-4 py-3 flex items-center gap-3 text-sm text-gray-300 bg-black/40 border border-white/5 rounded-xl hover:bg-white/10 hover:text-white transition-all group"
                                     >
-                                        <MessageCircle size={16} />
-                                        WhatsApp
+                                        <div className="p-2 bg-white/5 rounded-lg group-hover:bg-white/10 transition-colors">
+                                            <MessageCircle size={16} />
+                                        </div>
+                                        <span className="font-medium">WhatsApp</span>
                                     </a>
                                 </motion.div>
                             )}
