@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Mail, MessageCircle } from 'lucide-react';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [showHireOptions, setShowHireOptions] = useState(false);
 
     const navLinks = [
         { name: 'Work', href: '#work' },
@@ -45,15 +46,48 @@ const Navbar = () => {
                     </div>
 
                     {/* Right Button */}
-                    <div className="hidden md:block shrink-0 z-50">
+                    <div className="hidden md:block shrink-0 z-50 relative">
                         <motion.button
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: 0.4 }}
-                            className="px-6 py-2 bg-white text-black text-sm font-medium rounded-full hover:bg-gray-200 transition-colors"
+                            onClick={() => setShowHireOptions(!showHireOptions)}
+                            className="px-6 py-2 bg-white text-black text-sm font-medium rounded-full hover:bg-gray-200 transition-colors flex items-center gap-2"
                         >
                             Hire Me
                         </motion.button>
+
+                        <AnimatePresence>
+                            {showHireOptions && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                                    exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                                    className="absolute right-0 top-full mt-2 w-48 bg-zinc-900 border border-white/10 rounded-2xl overflow-hidden shadow-xl"
+                                >
+                                    <button
+                                        onClick={() => {
+                                            window.location.href = 'mailto:gowthamboothal22@gmail.com';
+                                            setShowHireOptions(false);
+                                        }}
+                                        className="w-full px-4 py-3 flex items-center gap-3 text-sm text-gray-300 hover:bg-white/10 hover:text-white transition-colors text-left"
+                                    >
+                                        <Mail size={16} />
+                                        Email
+                                    </button>
+                                    <button
+                                        onClick={() => {
+                                            window.open('https://wa.me/916379148128', '_blank');
+                                            setShowHireOptions(false);
+                                        }}
+                                        className="w-full px-4 py-3 flex items-center gap-3 text-sm text-gray-300 hover:bg-white/10 hover:text-white transition-colors text-left"
+                                    >
+                                        <MessageCircle size={16} />
+                                        WhatsApp
+                                    </button>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
                     </div>
 
                     {/* Mobile Menu Button */}
