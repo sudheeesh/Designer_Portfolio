@@ -136,7 +136,7 @@ const Hero = () => {
                         className="px-8 py-4 relative overflow-hidden group rounded-full text-white font-semibold"
                     >
                         {/* Rainbow Background */}
-                        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ef4444,#f97316,#eab308,#22c55e,#3b82f6,#a855f7)]" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-fuchsia-600 to-purple-600" />
 
                         {/* Hover Black Overlay */}
                         <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

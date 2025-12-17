@@ -108,10 +108,10 @@ const Contact = () => {
                             <div className="mt-8 pt-6 border-t border-white/5">
                                 <p className="text-[10px] text-gray-500 mb-3 uppercase tracking-wider">Socials</p>
                                 <div className="flex gap-2">
-                                    <a href="#" className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all">
+                                    <a href="https://www.linkedin.com/in/gowtham-boothal-84b672266/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all">
                                         <Linkedin size={14} />
                                     </a>
-                                    <a href="#" className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all font-bold text-[10px]">
+                                    <a href="https://www.behance.net/gocraftsstudios" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all font-bold text-[10px]">
                                         Be
                                     </a>
                                     <a href="#" className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center hover:bg-white hover:text-black transition-all">
