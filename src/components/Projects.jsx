@@ -11,6 +11,16 @@ import booking2 from '../assets/booking_2.jpg';
 import booking3 from '../assets/booking_3.jpg';
 import booking4 from '../assets/booking_4.jpg';
 import booking5 from '../assets/booking_5.jpg';
+import instagroceryLogo from '../assets/instagrocery_logo.png';
+import instagrocery1 from '../assets/instagrocery_1.jpg';
+import instagrocery2 from '../assets/instagrocery_2.png';
+import instagrocery3 from '../assets/instagrocery_3.jpg';
+import instagrocery4 from '../assets/instagrocery_4.jpg';
+import instagrocery5 from '../assets/instagrocery_5.jpg';
+import instagrocery6 from '../assets/instagrocery_6.jpg';
+import instagrocery7 from '../assets/instagrocery_7.jpg';
+import instagrocery8 from '../assets/instagrocery_8.jpg';
+import instagrocery9 from '../assets/instagrocery_9.jpg';
 
 const projects = [
     {
@@ -26,7 +36,7 @@ const projects = [
             textDesc: 'text-gray-300'   // Light text on dark bg
         },
         logoText: 'UC',
-        link: 'https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2IvYy8zZjczMjRhMjRkZjVhN2M0L0lRQXRNQm9memtXSlFKYWhBWC1pYmM2LUFiNWFaVWlycHR4ZnQ2NUxpQW9sdG4wP2U9d1lNZnZP&cid=3F7324A24DF5A7C4&id=3F7324A24DF5A7C4%21s1f1a302d45ce408996a1017fa26dcebe&parId=3F7324A24DF5A7C4%21s4617f7297a2a448383e612c55cac7f1f&o=OneUp',
+        link: 'https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2IvYy8zZjczMjRhMjRkZjVhN2M0L0lRQkJISTAyRVdCX1NxZW9MZDFJUkJqV0FiT0FHcTV1WV9hRzdka3hMWVJyM0VjP2U9MFFZWGY1&cid=3F7324A24DF5A7C4&id=3F7324A24DF5A7C4%21s368d1c4160114a7fa7a82ddd484418d6&parId=3F7324A24DF5A7C4%21s4617f7297a2a448383e612c55cac7f1f&o=OneUp',
         caseStudyUrl: 'https://www.figma.com/proto/cWyEeTr2NMsnmVWUXHNWC2/Urban-Company--Replica-?page-id=0%3A1&node-id=124-312&viewport=3598%2C665%2C0.3&t=dyDV6hRncvyUu7Eb-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=124%3A312',
         images: [uc1, uc2, uc3, uc4, uc5],
     },
@@ -46,6 +56,24 @@ const projects = [
         link: 'https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2IvYy8zZjczMjRhMjRkZjVhN2M0L0lRQk84QXZXSlFDYVE2UkMtNklrT3RPLUFjQm1fdlAtUENUZWx2cWxIUkgzNGVjP2U9NDNsdE1W&cid=3F7324A24DF5A7C4&id=3F7324A24DF5A7C4%21sd60bf04e0025439aa442fba2243ad3be&parId=3F7324A24DF5A7C4%21s4617f7297a2a448383e612c55cac7f1f&o=OneUp',
         caseStudyUrl: 'https://www.figma.com/proto/gIBZJv8F6zSg3tdDUhqj9n/project2?page-id=1%3A2&node-id=426-999&viewport=4378%2C640%2C0.24&t=pbo0F76jezkb4i7n-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=593%3A1091',
         images: [booking1, booking2, booking3, booking4, booking5],
+    },
+    {
+        id: 3,
+        title: 'Instagrocery IOS Mobile App',
+        company: 'Insta Grocery',
+        description: 'Instagrocery is a social-driven food and grocery ordering app that blends the experience of scrolling social media with instant purchasing',
+        type: 'mobile',
+        theme: {
+            bg: 'bg-gradient-to-br from-[#787228] via-[#a39a2d] to-[#d4ca47]',
+            logo: 'bg-white text-black',
+            textTitle: 'text-white',
+            textDesc: 'text-white/95'
+        },
+        logoText: 'Instagrocery',
+        logoImg: instagroceryLogo,
+        link: 'https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2IvYy8zZjczMjRhMjRkZjVhN2M0L0lRRFhDc0V0aGhBRlNiZzZmY2RwX0wxQ0FaazZaTV9EUWt3RDc0OVlYNHZYcUxBP2U9bklOOE1U&cid=3F7324A24DF5A7C4&id=3F7324A24DF5A7C4%21s2dc10ad710864905b83a7dc769fcbd42&parId=3F7324A24DF5A7C4%21s4617f7297a2a448383e612c55cac7f1f&o=OneUp',
+        caseStudyUrl: 'https://www.figma.com/proto/cWyEeTr2NMsnmVWUXHNWC2/Projects?page-id=482%3A7039&node-id=489-8069&viewport=265%2C447%2C0.36&t=3HFXvc8o9jKWkYAB-1&scaling=min-zoom&content-scaling=fixed',
+        images: [instagrocery1, instagrocery2, instagrocery3, instagrocery4, instagrocery5],
     }
 ];
 
@@ -131,7 +159,20 @@ const Projects = () => {
                                         variants={contentVariants}
                                         transition={{ delay: 0.1 }}
                                     >
-                                        {projects[currentIndex].logoText === 'UC' ? (
+                                        {projects[currentIndex].logoImg ? (
+                                            // Custom Logo Image (Instagrocery)
+                                            // Custom Logo Image (Instagrocery)
+                                            <div className="w-32 h-32 md:w-40 md:h-40 bg-white rounded-[2rem] flex flex-col items-center justify-center gap-2 shrink-0 shadow-2xl p-3">
+                                                <img
+                                                    src={projects[currentIndex].logoImg}
+                                                    alt="Logo"
+                                                    className="w-20 h-20 md:w-24 md:h-24 object-contain"
+                                                />
+                                                <span className="font-bold text-[16px] md:text-[20px] bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 bg-clip-text text-transparent tracking-tight">
+                                                    Instagrocery
+                                                </span>
+                                            </div>
+                                        ) : projects[currentIndex].logoText === 'UC' ? (
                                             // Urban Company: Big Black Card Logo
                                             <div className="w-32 h-32 md:w-40 md:h-40 bg-black rounded-[2rem] flex items-center justify-center gap-3 md:gap-4 shrink-0 shadow-2xl">
                                                 <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-xl flex items-center justify-center shrink-0">
