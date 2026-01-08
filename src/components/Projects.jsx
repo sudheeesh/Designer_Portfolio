@@ -26,8 +26,8 @@ const projects = [
             textDesc: 'text-gray-300'   // Light text on dark bg
         },
         logoText: 'UC',
-        link: 'https://www.figma.com/proto/cWyEeTr2NMsnmVWUXHNWC2/Urban-Company--Replica-?page-id=0%3A1&node-id=124-312&viewport=3598%2C665%2C0.3&t=dyDV6hRncvyUu7Eb-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=124%3A312',
-        caseStudyUrl: 'https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2IvYy8zZjczMjRhMjRkZjVhN2M0L0lRQXRNQm9memtXSlFKYWhBWC1pYmM2LUFiNWFaVWlycHR4ZnQ2NUxpQW9sdG4wP2U9d1lNZnZP&cid=3F7324A24DF5A7C4&id=3F7324A24DF5A7C4%21s1f1a302d45ce408996a1017fa26dcebe&parId=3F7324A24DF5A7C4%21s4617f7297a2a448383e612c55cac7f1f&o=OneUp',
+        link: 'https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2IvYy8zZjczMjRhMjRkZjVhN2M0L0lRQXRNQm9memtXSlFKYWhBWC1pYmM2LUFiNWFaVWlycHR4ZnQ2NUxpQW9sdG4wP2U9d1lNZnZP&cid=3F7324A24DF5A7C4&id=3F7324A24DF5A7C4%21s1f1a302d45ce408996a1017fa26dcebe&parId=3F7324A24DF5A7C4%21s4617f7297a2a448383e612c55cac7f1f&o=OneUp',
+        caseStudyUrl: 'https://www.figma.com/proto/cWyEeTr2NMsnmVWUXHNWC2/Urban-Company--Replica-?page-id=0%3A1&node-id=124-312&viewport=3598%2C665%2C0.3&t=dyDV6hRncvyUu7Eb-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=124%3A312',
         images: [uc1, uc2, uc3, uc4, uc5],
     },
     {
@@ -43,8 +43,8 @@ const projects = [
             textDesc: 'text-white/90'
         },
         logoText: 'Booking.com',
-        link: 'https://www.figma.com/proto/gIBZJv8F6zSg3tdDUhqj9n/project2?page-id=1%3A2&node-id=426-999&viewport=4378%2C640%2C0.24&t=pbo0F76jezkb4i7n-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=593%3A1091',
-        caseStudyUrl: 'https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2IvYy8zZjczMjRhMjRkZjVhN2M0L0lRQk84QXZXSlFDYVE2UkMtNklrT3RPLUFjQm1fdlAtUENUZWx2cWxIUkgzNGVjP2U9NDNsdE1W&cid=3F7324A24DF5A7C4&id=3F7324A24DF5A7C4%21sd60bf04e0025439aa442fba2243ad3be&parId=3F7324A24DF5A7C4%21s4617f7297a2a448383e612c55cac7f1f&o=OneUp',
+        link: 'https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2IvYy8zZjczMjRhMjRkZjVhN2M0L0lRQk84QXZXSlFDYVE2UkMtNklrT3RPLUFjQm1fdlAtUENUZWx2cWxIUkgzNGVjP2U9NDNsdE1W&cid=3F7324A24DF5A7C4&id=3F7324A24DF5A7C4%21sd60bf04e0025439aa442fba2243ad3be&parId=3F7324A24DF5A7C4%21s4617f7297a2a448383e612c55cac7f1f&o=OneUp',
+        caseStudyUrl: 'https://www.figma.com/proto/gIBZJv8F6zSg3tdDUhqj9n/project2?page-id=1%3A2&node-id=426-999&viewport=4378%2C640%2C0.24&t=pbo0F76jezkb4i7n-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=593%3A1091',
         images: [booking1, booking2, booking3, booking4, booking5],
     }
 ];
