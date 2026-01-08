@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Heart, Eye, Plus, Share2, Globe, User, Search, MapPin, Bell } from 'lucide-react';
+import { Heart, Eye, Plus, Share2, Globe, User, Search, MapPin, Bell, ArrowRight } from 'lucide-react';
 import uc1 from '../assets/uc_1.png';
 import uc2 from '../assets/uc_2.png';
 import uc3 from '../assets/uc_3.png';
@@ -27,6 +27,7 @@ const projects = [
         },
         logoText: 'UC',
         link: 'https://www.figma.com/proto/cWyEeTr2NMsnmVWUXHNWC2/Urban-Company--Replica-?page-id=0%3A1&node-id=124-312&viewport=3598%2C665%2C0.3&t=dyDV6hRncvyUu7Eb-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=124%3A312',
+        caseStudyUrl: 'https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2IvYy8zZjczMjRhMjRkZjVhN2M0L0lRQXRNQm9memtXSlFKYWhBWC1pYmM2LUFiNWFaVWlycHR4ZnQ2NUxpQW9sdG4wP2U9d1lNZnZP&cid=3F7324A24DF5A7C4&id=3F7324A24DF5A7C4%21s1f1a302d45ce408996a1017fa26dcebe&parId=3F7324A24DF5A7C4%21s4617f7297a2a448383e612c55cac7f1f&o=OneUp',
         images: [uc1, uc2, uc3, uc4, uc5],
     },
     {
@@ -43,6 +44,7 @@ const projects = [
         },
         logoText: 'Booking.com',
         link: 'https://www.figma.com/proto/gIBZJv8F6zSg3tdDUhqj9n/project2?page-id=1%3A2&node-id=426-999&viewport=4378%2C640%2C0.24&t=pbo0F76jezkb4i7n-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=593%3A1091',
+        caseStudyUrl: 'https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2IvYy8zZjczMjRhMjRkZjVhN2M0L0lRQk84QXZXSlFDYVE2UkMtNklrT3RPLUFjQm1fdlAtUENUZWx2cWxIUkgzNGVjP2U9NDNsdE1W&cid=3F7324A24DF5A7C4&id=3F7324A24DF5A7C4%21sd60bf04e0025439aa442fba2243ad3be&parId=3F7324A24DF5A7C4%21s4617f7297a2a448383e612c55cac7f1f&o=OneUp',
         images: [booking1, booking2, booking3, booking4, booking5],
     }
 ];
@@ -204,9 +206,34 @@ const Projects = () => {
                                                         exit="exit"
                                                         transition={{ duration: 0.8 }}
                                                         className="absolute inset-0 w-full h-full object-cover"
+
                                                     />
                                                 </AnimatePresence>
                                             </div>
+                                            {/* View Prototype CTA */}
+                                            <motion.div
+                                                initial={{ opacity: 0, y: 10 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                transition={{ delay: 0.5 }}
+                                                className="absolute bottom-6 left-0 right-0 z-20 flex justify-center pointer-events-auto"
+                                            >
+                                                <motion.button
+                                                    whileHover={{ scale: 1.05 }}
+                                                    whileTap={{ scale: 0.95 }}
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        if (projects[currentIndex].caseStudyUrl) {
+                                                            window.open(projects[currentIndex].caseStudyUrl, '_blank');
+                                                        }
+                                                    }}
+                                                    className="group flex items-center gap-2 px-4 py-2 bg-black/40 backdrop-blur-md rounded-full border border-white/10 shadow-lg hover:bg-black transition-all"
+                                                >
+                                                    <span className="text-[10px] md:text-xs font-semibold text-white tracking-wide">View Prototype</span>
+                                                    <div className="w-4 h-4 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors">
+                                                        <ArrowRight size={8} className="text-white" />
+                                                    </div>
+                                                </motion.button>
+                                            </motion.div>
                                         </motion.div>
                                     ) : (
                                         // Booking.com Web Mockup - Resized to fit
@@ -238,6 +265,33 @@ const Projects = () => {
                                                     />
                                                 </AnimatePresence>
                                             </div>
+
+                                            {/* View Prototype CTA */}
+                                            <motion.div
+                                                initial={{ opacity: 0, y: 10 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                transition={{ delay: 0.5 }}
+                                                className="absolute bottom-6 left-0 right-0 z-20 flex justify-center pointer-events-auto"
+                                            >
+                                                <motion.button
+                                                    whileHover={{ scale: 1.05 }}
+                                                    whileTap={{ scale: 0.95 }}
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        if (projects[currentIndex].caseStudyUrl) {
+                                                            window.open(projects[currentIndex].caseStudyUrl, '_blank');
+                                                        } else {
+                                                            console.log("Navigate to Booking Case Study");
+                                                        }
+                                                    }}
+                                                    className="group flex items-center gap-2 px-4 py-2 bg-black/40 backdrop-blur-md rounded-full border border-white/10 shadow-lg hover:bg-black transition-all"
+                                                >
+                                                    <span className="text-[10px] md:text-xs font-semibold text-white tracking-wide">View Prototype</span>
+                                                    <div className="w-4 h-4 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors">
+                                                        <ArrowRight size={8} className="text-white" />
+                                                    </div>
+                                                </motion.button>
+                                            </motion.div>
                                         </motion.div>
                                     )}
                                 </div>
@@ -267,7 +321,7 @@ const Projects = () => {
                     </div>
                 </div>
             </div>
-        </section>
+        </section >
     );
 };
 
