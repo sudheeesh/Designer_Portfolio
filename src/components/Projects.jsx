@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Heart, Eye, Plus, Share2, Globe, User, Search, MapPin, Bell, ArrowRight } from 'lucide-react';
+import { Heart, Eye, Plus, Share2, Globe, User, Search, MapPin, Bell, ArrowRight, Layers, PenTool, Box, Shirt } from 'lucide-react';
 import uc1 from '../assets/uc_1.png';
 import uc2 from '../assets/uc_2.png';
 import uc3 from '../assets/uc_3.png';
@@ -18,6 +18,10 @@ import instagrocery6 from '../assets/instagrocery_6.jpg';
 import instagrocery7 from '../assets/instagrocery_7.jpg';
 import instagrocery8 from '../assets/instagrocery_8.jpg';
 import instagrocery9 from '../assets/instagrocery_9.jpg';
+import wireframing from '../assets/wireframing.png';
+import logoDesigns from '../assets/logo_designs.png';
+import productDesign from '../assets/product_design.png';
+import tshirtDesigns from '../assets/tshirt_designs.png';
 
 const projects = [
     {
@@ -71,6 +75,41 @@ const projects = [
         link: 'https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2IvYy8zZjczMjRhMjRkZjVhN2M0L0lRRFhDc0V0aGhBRlNiZzZmY2RwX0wxQ0FaazZaTV9EUWt3RDc0OVlYNHZYcUxBP2U9bklOOE1U&cid=3F7324A24DF5A7C4&id=3F7324A24DF5A7C4%21s2dc10ad710864905b83a7dc769fcbd42&parId=3F7324A24DF5A7C4%21s4617f7297a2a448383e612c55cac7f1f&o=OneUp',
         caseStudyUrl: 'https://www.figma.com/proto/cWyEeTr2NMsnmVWUXHNWC2/Projects?page-id=482%3A7039&node-id=489-8069&viewport=265%2C447%2C0.36&t=3HFXvc8o9jKWkYAB-1&scaling=min-zoom&content-scaling=fixed',
         images: [instagrocery1, instagrocery3, instagrocery6, instagrocery7, instagrocery8, instagrocery9],
+    }
+];
+
+const expertiseItems = [
+    {
+        title: "Wireframing",
+        icon: Layers,
+        color: "bg-blue-500/10 text-blue-500",
+        placeholderColor: "bg-zinc-800",
+        image: wireframing,
+        link: "https://www.figma.com/design/gIBZJv8F6zSg3tdDUhqj9n/wireframe?node-id=0-1&t=mgRIEL8JH1UjDVAD-1"
+    },
+    {
+        title: "Logo Designs",
+        icon: PenTool,
+        color: "bg-purple-500/10 text-purple-500",
+        placeholderColor: "bg-zinc-800",
+        image: logoDesigns,
+        link: "https://www.figma.com/design/wjRdJRieXulR6Rep0v9OWh/Portfolio-Design?node-id=273-228&t=tMLNJ2twdHrwX8U3-1"
+    },
+    {
+        title: "Product Design",
+        icon: Box,
+        color: "bg-orange-500/10 text-orange-500",
+        placeholderColor: "bg-zinc-800",
+        image: productDesign,
+        link: "https://www.figma.com/design/wjRdJRieXulR6Rep0v9OWh/Portfolio-Design?node-id=264-182&t=tMLNJ2twdHrwX8U3-1"
+    },
+    {
+        title: "T-Shirt Designs",
+        icon: Shirt,
+        color: "bg-green-500/10 text-green-500",
+        placeholderColor: "bg-zinc-800",
+        image: tshirtDesigns,
+        link: "https://www.figma.com/design/wjRdJRieXulR6Rep0v9OWh/Portfolio-Design?node-id=264-183&t=tMLNJ2twdHrwX8U3-1"
     }
 ];
 
@@ -357,6 +396,61 @@ const Projects = () => {
                             </div>
                         ))}
                     </div>
+                </div>
+
+                {/* Technical Expertise Grid */}
+                <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+                    {expertiseItems.map((item, index) => (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: index * 0.1 }}
+                            className="flex flex-col items-center gap-4 group cursor-pointer"
+                            onClick={() => item.link && window.open(item.link, '_blank')}
+                        >
+                            {/* Card Container */}
+                            <div className={`w-full aspect-square rounded-[2rem] border border-white/10 ${item.placeholderColor} overflow-hidden relative flex items-center justify-center transition-all duration-500 group-hover:border-white/30 group-hover:shadow-2xl group-hover:shadow-purple-500/10`}>
+
+                                {/* Content: Image if available, else Placeholder */}
+                                {item.image ? (
+                                    <>
+                                        {/* Blurred Background Layer */}
+                                        <div className="absolute inset-0 w-full h-full">
+                                            <img
+                                                src={item.image}
+                                                alt=""
+                                                className="w-full h-full object-cover blur-xl scale-125 opacity-100 contrast-125 transition-transform duration-700 group-hover:scale-150"
+                                            />
+                                        </div>
+
+                                        {/* Inner Main Image - Smaller & Centered */}
+                                        <div className="relative z-10 w-[85%] h-[85%] flex items-center justify-center">
+                                            <img
+                                                src={item.image}
+                                                alt={item.title}
+                                                className="w-full h-full object-contain rounded-2xl shadow-xl transition-transform duration-500 group-hover:scale-105"
+                                            />
+                                        </div>
+                                    </>
+                                ) : (
+                                    <div className="relative z-10 flex flex-col items-center justify-center gap-2 opacity-50 group-hover:opacity-100 transition-opacity">
+                                        <item.icon size={48} className="text-white/20" />
+                                        <span className="text-xs text-white/20 font-medium tracking-widest uppercase">Placeholder</span>
+                                    </div>
+                                )}
+
+                                {/* Hover Overlay Effect */}
+                                <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            </div>
+
+                            {/* Title */}
+                            <h3 className="text-lg md:text-xl font-medium text-gray-200 group-hover:text-white transition-colors">
+                                {item.title}
+                            </h3>
+                        </motion.div>
+                    ))}
                 </div>
             </div>
         </section >
