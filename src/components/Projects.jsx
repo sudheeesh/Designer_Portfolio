@@ -13,10 +13,7 @@ import booking4 from '../assets/booking_4.jpg';
 import booking5 from '../assets/booking_5.jpg';
 import instagroceryLogo from '../assets/instagrocery_logo.png';
 import instagrocery1 from '../assets/instagrocery_1.jpg';
-import instagrocery2 from '../assets/instagrocery_2.png';
 import instagrocery3 from '../assets/instagrocery_3.jpg';
-import instagrocery4 from '../assets/instagrocery_4.jpg';
-import instagrocery5 from '../assets/instagrocery_5.jpg';
 import instagrocery6 from '../assets/instagrocery_6.jpg';
 import instagrocery7 from '../assets/instagrocery_7.jpg';
 import instagrocery8 from '../assets/instagrocery_8.jpg';
@@ -73,7 +70,7 @@ const projects = [
         logoImg: instagroceryLogo,
         link: 'https://onedrive.live.com/?redeem=aHR0cHM6Ly8xZHJ2Lm1zL2IvYy8zZjczMjRhMjRkZjVhN2M0L0lRRFhDc0V0aGhBRlNiZzZmY2RwX0wxQ0FaazZaTV9EUWt3RDc0OVlYNHZYcUxBP2U9bklOOE1U&cid=3F7324A24DF5A7C4&id=3F7324A24DF5A7C4%21s2dc10ad710864905b83a7dc769fcbd42&parId=3F7324A24DF5A7C4%21s4617f7297a2a448383e612c55cac7f1f&o=OneUp',
         caseStudyUrl: 'https://www.figma.com/proto/cWyEeTr2NMsnmVWUXHNWC2/Projects?page-id=482%3A7039&node-id=489-8069&viewport=265%2C447%2C0.36&t=3HFXvc8o9jKWkYAB-1&scaling=min-zoom&content-scaling=fixed',
-        images: [instagrocery1, instagrocery2, instagrocery3, instagrocery4, instagrocery5],
+        images: [instagrocery1, instagrocery3, instagrocery6, instagrocery7, instagrocery8, instagrocery9],
     }
 ];
 
