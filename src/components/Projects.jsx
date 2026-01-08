@@ -430,7 +430,7 @@ const Projects = () => {
                                             <img
                                                 src={item.image}
                                                 alt={item.title}
-                                                className="w-full h-full object-contain rounded-2xl shadow-xl transition-transform duration-500 group-hover:scale-105"
+                                                className="w-full h-full object-cover rounded-[2rem] shadow-xl transition-transform duration-500 group-hover:scale-105"
                                             />
                                         </div>
                                     </>
